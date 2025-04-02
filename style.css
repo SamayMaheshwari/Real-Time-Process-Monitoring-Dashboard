@@ -196,3 +196,35 @@ h1, h2, button, .graph, .process-container, .other {
 }
 
 
+ /* changes done */
+.c1 {
+    background: linear-gradient(135deg, #1e3c72, #2a5298,#6dd5ed); /* Gradient background */
+    color: white; 
+    border-radius: 12px; 
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+}
+
+.c1 h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    color: #ffeb3b; /* Yellow color for titles */
+}
+
+.c1 p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.c1:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+} 
+
+
+
