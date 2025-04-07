@@ -32,18 +32,20 @@ app.get("/processes", (req, res) => {
 // Route to kill a process by PID
 app.post("/kill", (req, res) => {
     const { pid } = req.body;
-    
+
     if (!pid) {
-        return res.status(400).json({ error: "PID is required" });
+        return res.status(400).json({ message: "PID is required" });
     }
 
     exec(`taskkill /PID ${pid} /F`, (error, stdout, stderr) => {
         if (error) {
-            return res.status(500).json({ error: `Failed to terminate process with PID: ${pid}` });
+            // Even if there is an error, we send proper message
+            return res.json({ message: `Failed to terminate process with PID: ${pid}. It may be a system process or access is denied.` });
         }
-        res.json({ message: `Process with PID ${pid} terminated.` });
+        res.json({ message: `Process with PID ${pid} terminated successfully.` });
     });
 });
+
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
