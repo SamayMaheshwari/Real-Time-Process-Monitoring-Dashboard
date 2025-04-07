@@ -32,18 +32,24 @@ function fetchProcesses() {
 
 function displayProcesses(data) {
     const tableBody = document.getElementById("process-list");
-    tableBody.innerHTML = ""; 
+    tableBody.innerHTML = "";
+
+    if (data.length === 0) {
+        tableBody.innerHTML = `<tr><td colspan="4">No processes found.</td></tr>`;
+        return;
+    }
 
     data.forEach(process => {
         let row = `<tr>
-            <td>${process.name}</td>
             <td>${process.pid}</td>
-            <td>${process.memory}</td>
+            <td>${process.name}</td>
+            <td>${process.memory} KB</td>
             <td><button onclick="killProcess(${process.pid})">Kill</button></td>
         </tr>`;
         tableBody.innerHTML += row;
     });
 }
+
 
 
 function filterProcesses() {
