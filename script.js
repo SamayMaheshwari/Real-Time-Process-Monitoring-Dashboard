@@ -43,7 +43,7 @@ function displayProcesses(data) {
         let row = `<tr>
             <td>${process.pid}</td>
             <td>${process.name}</td>
-            <td>${process.memory} KB</td>
+            <td>${process.memory} </td>
             <td><button onclick="killProcess(${process.pid})">Kill</button></td>
         </tr>`;
         tableBody.innerHTML += row;
